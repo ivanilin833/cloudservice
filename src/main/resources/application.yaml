@@ -3,37 +3,33 @@ server:
   servlet:
     context-path: /cloud
 
-
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/diploma
-    username: ivan
-    password: 715820
-
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-
-  liquibase:
-    enabled: true
-    change-log: classpath:db/changelog/db.changelog-master.yaml
-
-  main:
-    allow-circular-references: true
-
+    url: jdbc:mysql://localhost:3306/netology
+    username: root
+    password: root
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+  main:
+    allow-circular-references: true
 
-jwt:
-  token:
-    secret: "secret"
-    expiration: 18000
-
+# cors policy for test environment
 cors:
-  origins: 'http://localhost:8080'
+  origins: '*'
   methods: '*'
   headers: '*'
   credentials: true
+
+token:
+  signing:
+    key: 53A73E5F1C4E0A2D3B5F2D784E6A1B423D6F247D1F6E5C3A596D635A75327855
+

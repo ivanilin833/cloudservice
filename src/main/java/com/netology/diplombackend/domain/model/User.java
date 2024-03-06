@@ -20,7 +20,8 @@ import java.util.List;
 public class User implements UserDetails, Serializable {
 
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(unique = true, nullable = false)
     private String username;

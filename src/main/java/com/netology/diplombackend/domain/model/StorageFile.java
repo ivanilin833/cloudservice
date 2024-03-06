@@ -2,6 +2,7 @@ package com.netology.diplombackend.domain.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,9 +13,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "files")
+@Builder
 public class StorageFile {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(nullable = false, unique = true)
     private String filename;
@@ -26,7 +29,7 @@ public class StorageFile {
     private Long size;
 
     @Lob
-    @Column(nullable = false)
+    @Column(name = "file_content", nullable = false, columnDefinition = "LONGBLOB")
     private byte[] fileContent;
 
     @ManyToOne

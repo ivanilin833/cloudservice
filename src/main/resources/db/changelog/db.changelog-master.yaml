@@ -1,10 +1,10 @@
 databaseChangeLog:
   - include:
       file: /tables/users.sql
-      relativeToChangeLogFile: true
+
   - include:
       file: /tables/files.sql
-      relativeToChangeLogFile: true
+
   - include:
       file: /tables/insert_users.sql
-      relativeToChangeLogFile: true
+
